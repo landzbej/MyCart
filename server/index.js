@@ -35,17 +35,6 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.json());
 
-app.use("/", async (req, res) => {
-
-  const newItem = await Product.create({
-    title: "Tinker, Tailor, Soldier, Spy - A John le Carre Novel",
-    quantity: 12,
-    price: 13.74,
-  })
-
-  await newItem.save();
-})
-
 app.use("/api", apiRoutes);
 app.use("/ui", uiRoutes);
 
