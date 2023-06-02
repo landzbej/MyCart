@@ -1,6 +1,6 @@
 const { React, useState } = require("react");
 
-const AddForm = ({ onAddProduct }) =>  {
+const AddForm = ({ onAddProduct, onCancel }) =>  {
   const [title, setTitle] = useState(""); 
   const [price, setPrice] = useState(""); 
   const [quantity, setQuantity] = useState(""); 
@@ -9,10 +9,10 @@ const AddForm = ({ onAddProduct }) =>  {
     setTitle("");
     setPrice("");
     setQuantity("");
+    onCancel();
   }
   return (
     <>
-    <p><button className="add-product-button">Add A Product</button></p>
     <h3>Add Product</h3>
     <form onSubmit={ (e) => {
           e.preventDefault();
@@ -57,7 +57,7 @@ const AddForm = ({ onAddProduct }) =>  {
       </div>
       <div className="actions form-actions">
         <button type="submit">Add</button>
-        <button type="button">Cancel</button>
+        <button type="button" onClick={onCancel}>Cancel</button>
       </div>
     </form>
     </>
