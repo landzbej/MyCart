@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 mongoose
-  .connect("mongodb+srv://snackoverflow-1:XBkhlnCFu8XJqrNm@react-w5-cart.jwafnea.mongodb.net/shopping_cart?retryWrites=true&w=majority", {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
